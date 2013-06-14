@@ -1,0 +1,19 @@
+<form>
+	<input type="text" id="title"><br>
+<input type="author" id="author"><br>
+</form>
+
+<div class="book"></div>
+<script type="text/javascript">
+$('#title').on('blur', function(){
+	var title = $('#title').val()
+	$.ajax({
+		type: 'GET',
+		url: 'test',
+		data: {search: title }
+	}).done(function(html){
+		$('.book').append(html);
+	})
+})
+
+</script>
